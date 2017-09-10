@@ -27,7 +27,8 @@ contract Bank is Regulator {
     }
     
     function checkValue(uint amount) returns (bool) {
-        return amount >= value;
+        // Classic mistake in the tutorial value should be above the amount
+        return value >= amount;
     }
     
     function loan() returns (bool) {
