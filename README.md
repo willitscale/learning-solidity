@@ -5,3 +5,4 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 2 Inheritance](https://www.youtube.com/watch?v=6hkmLOtIq8A)
 - [Learning Solidity : Tutorial 3 Custom Modifiers and Error Handling](https://www.youtube.com/watch?v=3ObTNzDM3wI)
 - [Learning Solidity : Tutorial 4 Imports and Libraries](https://www.youtube.com/watch?v=0Lyf_3kA3Ms)
+- [Learning Solidity : Tutorial 5 Event logging and Transaction Information](https://www.youtube.com/watch?v=Jlq997yOoRs)
