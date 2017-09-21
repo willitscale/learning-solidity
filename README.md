@@ -9,3 +9,4 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 6 Data Types (Array, Mapping, Struct)](https://www.youtube.com/watch?v=8UhO3IKApSg)
 - [Learning Solidity : Tutorial 7 Extending String Functionality and Bytes](https://www.youtube.com/watch?v=6iiWwT0O2fY)
 - [Learning Solidity : Tutorial 8 Debugging Solidity Using Remix](https://www.youtube.com/watch?v=7z52hP26MFs)
+- [Learning Solidity : Tutorial 9 ERC20 Tokens and Creating your own Crypto Currency] (https://www.youtube.com/watch?v=r7XojpIDuhA)
