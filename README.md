@@ -12,3 +12,5 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 9 ERC20 Tokens and Creating your own Crypto Currency](https://www.youtube.com/watch?v=r7XojpIDuhA)
 - [Learning Solidity : Tutorial 10 ERC223 Tokens and Creating your own Crypto Currency](https://www.youtube.com/watch?v=IWC9-yGoDGs)
 - [Learning Solidity : Tutorial 11 Deploying Tokens and Creating your own Crypto Currency](https://www.youtube.com/watch?v=WfkPTyvOL_g)
+- [Learning Solidity : Tutorial 12 Functional Assembly](https://www.youtube.com/watch?v=nkGN6GwkMzU)
+
