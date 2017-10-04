@@ -15,5 +15,4 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 12 Functional Assembly](https://www.youtube.com/watch?v=nkGN6GwkMzU)
 - [Learning Solidity : Tutorial 13 Instructional Assembly](https://www.youtube.com/watch?v=axZJ2NFMH5Q)
 - [Learning Solidity : Tutorial 14 Transferring Ethereum between contracts](https://www.youtube.com/watch?v=ELWSKMcJfI8)
-
-
+- [Learning Solidity : Tutorial 15 Public vs External](https://www.youtube.com/watch?v=Ii4g38mPPlg)
