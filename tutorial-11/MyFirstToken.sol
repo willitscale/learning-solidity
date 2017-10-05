@@ -26,8 +26,8 @@ contract MyFirstToken is Token("MFT", "My First Token", 18, 1000), ERC20, ERC223
         if (_value > 0 &&
             _value <= _balanceOf[msg.sender] &&
             !isContract(_to)) {
-            _balanceOf[msg.sender].sub(_value);
-            _balanceOf[_to].add(_value);
+            _balanceOf[msg.sender] =_balanceOf[msg.sender].sub(_value);
+            _balanceOf[_to] = _balanceOf[_to].add(_value);
             Transfer(msg.sender, _to, _value);
             return true;
         }
@@ -38,8 +38,8 @@ contract MyFirstToken is Token("MFT", "My First Token", 18, 1000), ERC20, ERC223
         if (_value > 0 &&
             _value <= _balanceOf[msg.sender] &&
             isContract(_to)) {
-            _balanceOf[msg.sender].sub(_value);
-            _balanceOf[_to].add(_value);
+            _balanceOf[msg.sender] = _balanceOf[msg.sender].sub(_value);
+            _balanceOf[_to] = _balanceOf[_to].add(_value);
             ERC223ReceivingsolsasdasdasContract _contract = ERC223ReceivingContract(_to);
             _contract.tokenFallback(msg.sender, _value, _data);
             Transfer(msg.sender, _to, _value, _data);
@@ -61,8 +61,8 @@ contract MyFirstToken is Token("MFT", "My First Token", 18, 1000), ERC20, ERC223
             _value > 0 &&
             _allowances[_from][msg.sender] >= _value &&
             _balanceOf[_from] >= _value) {
-            _balanceOf[_from].sub(_value);
-            _balanceOf[_to].add(_value);
+            _balanceOf[_from] = _balanceOf[_from].sub(_value);
+            _balanceOf[_to] = _balanceOf[_to].add(_value);
             _allowances[_from][msg.sender] -= _value;
             Transfer(_from, _to, _value);
             return true;
