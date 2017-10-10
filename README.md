@@ -18,3 +18,4 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 15 Public vs External](https://www.youtube.com/watch?v=Ii4g38mPPlg)
 - [Learning Solidity : Tutorial 16 Time Based Events](https://www.youtube.com/watch?v=HGw-yalqdgs)
 - [Learning Solidity : Tutorial 17 Polymorphism](https://www.youtube.com/watch?v=l_E5F5qnbtk)
+- [Learning Solidity : Tutorial 18 Randomness and Gambling](https://www.youtube.com/watch?v=3wY5PRliphE)
