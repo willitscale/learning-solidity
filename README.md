@@ -21,4 +21,5 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 18 Randomness and Gambling](https://www.youtube.com/watch?v=3wY5PRliphE)
 
 Contributions:
-[Nikita Chebykin](https://github.com/chebykin) - Identified Safe Math bugs in Tutorial 11
+
+- [Nikita Chebykin](https://github.com/chebykin) - Identified Safe Math bugs in Tutorial 11
