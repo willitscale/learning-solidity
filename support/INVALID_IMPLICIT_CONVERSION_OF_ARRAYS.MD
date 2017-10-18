@@ -1,6 +1,6 @@
 ## Invalid implicit conversion of arrays from storage to memory and vice-versa
 
-This is a common error for those assuming that the storage mechanisms within solidity allows the transfer corresponding data types.
+This is a common error for those assuming that the storage mechanisms within solidity allows the transfer of corresponding data types.
 
 #### 1. Casting arrays from different storage mechanisms
 
