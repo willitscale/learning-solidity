@@ -1,10 +1,10 @@
 ## Invalid implicit conversion of arrays from storage to memory and vice-versa
 
-This is a common error for those assuming that the storage mechanisms within solidity allows the transfer of corresponding data types.
+This document outlines some issues with data casting between arrays and their corresponding storage mechanisms. The key issue in most cases raised is looking at casting a fixed length array to a dynamic array.
 
-#### 1. Casting arrays from different storage mechanisms
+#### 1. Casting arrays
 
-First things first, you cannot directly cast a calldata/memory array to a storage array due to an array in storage is a reference to a storage value and an array in memory is a reference to memory (calldata is copied to memory). In short if you want to move values from one type to another you have to iterate over the array and copy values one at a time as they are different storage mechanisms and they interact with data in different ways. Secondly, you can't cast a fixed length array to a dynamic array as they are completely different data types. A fixed length array has no length property because it has a deterministic length.
+Casting arrays can be in some cases a simple operation such as point one reference to another, if the two data types have an identical correlation.
 
 ##### 1.1. Types of errors you may encounter
 
@@ -12,10 +12,9 @@ First things first, you cannot directly cast a calldata/memory array to a storag
 
 > TypeError: Invalid type for argument in function call. Invalid implicit conversion from uint[n] storage ref to int[] memory requested.
 
-
 #### 2. What do arrays look like in memory?
 
-Arrays are not all the same and each storage has its own way of storing data.
+Arrays and their storage types are not all the same and each variant has its own way of storing data.
 
 ##### 2.1. Fixed-length array
 
@@ -25,7 +24,7 @@ A fixed-length array is the most primitive type of array we have available withi
 uint[2] fixedArray;
 ```
 
-What we're telling the compiler here is that we plan on storing two values which both need to be 256 bits in length (or 32 bytes). Because we have a deterministic value there is no need for us to store any more information. We are already bound to the constraints of the length and have also defined the size of each length by the data type. When the compiler allocates the memory for a fixed length array it is then reserved and both the number of elements and data type cannot be modified.
+What we're telling the compiler here is that we plan on storing two values which both need to be 256 bits in length (or 32 bytes). Because we have a length known at compile time there is no need for us to store any more information. We are already bound to the constraints of the length and have also defined the size of each length by the data type. When the compiler allocates the memory for a fixed length array it is then reserved and both the number of elements and data type cannot be modified.
 
 ###### 2.1.1. Memory Layout
 
@@ -44,19 +43,19 @@ Just a sequence of elements of their data type length.
 
 ##### 2.2. Dynamic arrays in memory/storage
 
-Although memory and storage use different storage mechanisms (storage is stored as part of the blockchain data and memory in temporary memory on execution), they have the same structure. As we already know that they are a uint we know their data size and only need to store the length and the values. Here's what a dynamic array looks like in code:
+Although memory and storage use different storage mechanisms (storage is stored as part of the blockchain data and memory in temporary memory on execution), they have the same structure. As we already know that they we are storing a uint of 32 bytes we have no need to store the data size and therefore only need to store the length and values. Here's what a simple dynamic array definition looks like in code:
 
 ```
 uint[] dynamicArray;
 ```
 
-In this case we're simply telling the compiler that we have a dynamic array, of a mutable length and we have a fixed data type length. So the compiler interprets this as we need to reserve enough memory for the **n** number of elements multiplied by the **s** size of the data type. It's worth noting that at the point it's not possible to modify a dynamic array which has been created in memory directly e.g.
+In this case we're simply telling the compiler that we have a dynamic array, of a mutable length and we have a fixed data type size. The compiler interprets this as we need to reserve enough memory for the **n** number of elements multiplied by the **s** size of the data type. It's worth noting that at the moment it's not currently possible to modify a dynamic array length which has been created in memory directly e.g.
 
 ```
 uint[] memory dynamicArrayInMemory;
 ```
 
-Dynamic arrays cannot be modified once in memory due to how arrays are currently stored in Solidity. Basically, if you have a dynamic array which has a incremental growing and shrinking capacity, you would either have to; constantly keep shuffling around the memory, risk overwriting existing memory or reserve a large block of memory which is incredibly inefficient and gas heavy. Other programming languages resolved this issue using dictionaries and linked list structures where you reference various memory locations instead of a sequence of memory. The reason why its possible to do in the storage is because it optimizes the storage similar to a linked list, but this hasn't been applied to the use within memory. In short arrays in Solidity are far from complete and need some work yet, so I would consider using other techniques for now.
+Dynamic arrays are finite in length once in memory due to how arrays are currently stored in Solidity. Basically, if you have a dynamic array which has a incremental growing and shrinking capacity you would either have to; constantly keep shuffling around the memory, risk overwriting existing memory or reserve a large block of memory which is incredibly inefficient and gas heavy. Other programming languages resolved this issue using dictionaries and linked list structures where you reference various memory locations instead of a sequence of memory. The reason why its possible to do in the storage is because it optimizes the storage similar to a linked list, but this hasn't been applied to the use within memory. In short arrays in Solidity are far from complete and need some additional work, so I would consider using other techniques for now.
 
 ###### 2.2.1. Memory Layout
 
@@ -75,7 +74,7 @@ This time we have an extra length value, but again still a sequence of elements.
 
 ###### 2.2.2. An array in storage
 
-Arrays in memory as previously mentioned are not in sequence and therefore can grow and shrink without consequence. They use a key reference which is calculated in two ways. The first is by variable index which is the incremental entry (using a zero index) that they get assigned when the contract is constructed which is in a queue like manor. Let's take the following for example:
+Arrays in storage as previously mentioned are not in sequence and therefore can grow and shrink without consequence. They use a key reference which is calculated in two ways. The first is by variable index which is the incremental entry (using a zero index) that they get assigned when the contract is constructed which is in a queue like manor. Let's take the following for example:
 
 ```
     uint[] _storage1;
@@ -192,22 +191,23 @@ Essentially, our array is defined between `0x60` and `0xff` with this breakdown:
 The problem we have is that if we want to add a fifth value we now have to start moving memory around or overwrite existing memory. To append an element the following steps would have to be performed:
 1. Allocate `32 bytes` of memory to the heap
 2. Move the unsigned integer forward `32 bytes`
-3. Increment our array size to 5
-4. Add our fifth element to between `0x100` - `0x11f` 
-5. Update the free memory pointer to `0x140`
+3. Update any references which used the unsigned integer to point now to `0x120` (such as the stack)
+4. Increment our array size to 5
+5. Add our fifth element to between `0x100` - `0x11f` 
+6. Update the free memory pointer to `0x140`
 
-This example is pretty simplistic as there isn't much memory, but if there was a substantial amount of memory after the array, that's where our problem would lie.
+This example is pretty simplistic as there isn't much memory, but if there was a substantial amount of memory after the array then you are realms of memory corruption if not handled correctly. 
 
 ##### 2.3. Dynamic array in call data
 
-When handling call data it has a prefix of the data type size which is important if you're creating this value from raw data in assembly.
+When handling call data it has a prefix of the data pointer which is important if you're creating an array from inline assembly.
 
 ###### 2.3.1. Memory Layout
 
 ```
 ---------------------------------------------------------------------
-|    Data Type   |    Length of   |     Element    |     Element    |
-|      Size      |      array     |       n1       |        n2      |
+|      Data      |    Length of   |     Element    |     Element    |
+|     Pointer    |      array     |       n1       |        n2      |
 ---------------------------------------------------------------------
 |     32 bytes   |    32 bytes    |    32 bytes    |    32 bytes    | 
 ---------------------------------------------------------------------
@@ -215,7 +215,7 @@ When handling call data it has a prefix of the data type size which is important
 ---------------------------------------------------------------------
 ```
 
-Despite the extra 32 bytes of data for the data type length, it's still the same mutable sequence of data.
+Despite the extra 32 bytes for the data pointer, it's still the same mutable sequence of data.
 
 #### 3. Resources
 
