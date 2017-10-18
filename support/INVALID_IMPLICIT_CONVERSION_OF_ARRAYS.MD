@@ -44,7 +44,7 @@ Just a sequence of elements of their data type length.
 
 ##### 2.2. Dynamic arrays in memory/storage
 
-Although they use different storage mechanisms (storage is stored as part of the blockchain data and memory in temporary memory on execution), they have the same structure. As we already know that they are a uint we know their data size and only need to store the length and the values. Here's what a dynamic array looks like in code:
+Although memory and storage use different storage mechanisms (storage is stored as part of the blockchain data and memory in temporary memory on execution), they have the same structure. As we already know that they are a uint we know their data size and only need to store the length and the values. Here's what a dynamic array looks like in code:
 
 ```
 uint[] dynamicArray;
