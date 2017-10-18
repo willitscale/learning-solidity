@@ -1,6 +1,8 @@
 # Learning Solidity
 The companion to the Youtube tutorials
 
+### Videos
+
 - [Learning Solidity : Tutorial 1 The Basics](https://www.youtube.com/watch?v=v_hU0jPtLto)
 - [Learning Solidity : Tutorial 2 Inheritance](https://www.youtube.com/watch?v=6hkmLOtIq8A)
 - [Learning Solidity : Tutorial 3 Custom Modifiers and Error Handling](https://www.youtube.com/watch?v=3ObTNzDM3wI)
@@ -20,6 +22,10 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 17 Polymorphism](https://www.youtube.com/watch?v=l_E5F5qnbtk)
 - [Learning Solidity : Tutorial 18 Randomness and Gambling](https://www.youtube.com/watch?v=3wY5PRliphE)
 
-Contributions:
+### Support
+
+- [Invalid implicit conversion of arrays from storage to memory and vice-versa](https://github.com/willitscale/learning-solidity/support/INVALID_IMPLICIT_CONVERSION_OF_ARRAYS.MD)
+
+### Contributions
 
 - [Nikita Chebykin](https://github.com/chebykin) - Identified Safe Math bugs in Tutorial 11
