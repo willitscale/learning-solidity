@@ -24,7 +24,7 @@ The companion to the Youtube tutorials
 
 ### Support
 
-- [Invalid implicit conversion of arrays from storage to memory and vice-versa](https://github.com/willitscale/learning-solidity/support/INVALID_IMPLICIT_CONVERSION_OF_ARRAYS.MD)
+- [Invalid implicit conversion of arrays from storage to memory and vice-versa](https://github.com/willitscale/learning-solidity/blob/master/support/INVALID_IMPLICIT_CONVERSION_OF_ARRAYS.MD)
 
 ### Contributions
 
