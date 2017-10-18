@@ -25,7 +25,7 @@ A fixed-length array is the most primitive type of array we have available withi
 uint[2] fixedArray;
 ```
 
-What we're telling the compiler here is that we plan on storing two values which both need to be 256 bits in length (or 32 bytes). Because we have a deterministic value there is no need for us to store any more information. We are already bound to the constraints of the length and have also defined the size of each length by the data type. When the compiler allocates the memory for a fixed length array is reserved and both the length and data type cannot be modified.
+What we're telling the compiler here is that we plan on storing two values which both need to be 256 bits in length (or 32 bytes). Because we have a deterministic value there is no need for us to store any more information. We are already bound to the constraints of the length and have also defined the size of each length by the data type. When the compiler allocates the memory for a fixed length array it is then reserved and both the number of elements and data type cannot be modified.
 
 ###### 2.1.1. Memory Layout
 
