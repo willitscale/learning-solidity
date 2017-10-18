@@ -216,3 +216,8 @@ When handling call data it has a prefix of the data type size which is important
 ```
 
 Despite the extra 32 bytes of data for the data type length, it's still the same mutable sequence of data.
+
+#### 3. Resources
+
+- [Layout of State Variables in Storage](http://solidity.readthedocs.io/en/develop/miscellaneous.html#layout-of-state-variables-in-storage)
+- [Layout in Memory](http://solidity.readthedocs.io/en/develop/miscellaneous.html#layout-in-memory)
