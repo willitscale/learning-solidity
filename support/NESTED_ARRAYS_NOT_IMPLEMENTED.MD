@@ -23,7 +23,7 @@ Nested arrays within Solidity are still incomplete, they do work to a certain de
 
 ### 1. Can I use nested arrays?
 
-In short, yes you can, but you have to understand the constraints of using them before you design your DAPP around them. The first question you want to pose yourself really is do you need them? In Solidity's current state nested arrays are incomplete and will cause you unnecessary challenges. Next, you to be mindful of is what type of storage will you use for your nested array? Nested arrays are not implemented for every storage type, although they may not throw errors at compilation time you may encounter errors at run time.
+In short, yes you can, but you have to understand the constraints of using them before you design your DAPP around them. The first question you want to pose yourself really is do you need them? In Solidity's current state nested arrays are incomplete and will cause you unnecessary challenges. Next, another challenge you should be mindful of is what type of storage will you use for your nested array? Nested arrays are not implemented for every storage type, although they may not throw errors at compilation time you may encounter errors at run time.
 
 #### 1.1. Where can I use a nested array?
 
