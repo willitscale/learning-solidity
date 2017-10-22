@@ -26,6 +26,7 @@ The companion to the Youtube tutorials
 ### Support
 
 - [Invalid implicit conversion of arrays from storage to memory and vice-versa](https://github.com/willitscale/learning-solidity/blob/master/support/INVALID_IMPLICIT_CONVERSION_OF_ARRAYS.MD)
+- [UnimplementedFeatureError: Nested arrays not implemented?](https://github.com/willitscale/learning-solidity/blob/master/support/NESTED_ARRAYS_NOT_IMPLEMENTED.MD)
 
 ### Contributions
 
