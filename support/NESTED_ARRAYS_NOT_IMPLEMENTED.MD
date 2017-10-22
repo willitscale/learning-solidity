@@ -2,7 +2,7 @@
 
 ### Brief
 
-The concept of a nested array in Solidity doesn't always relate to a primitive definition such as `uint[][]` or `byte[][]`. It encapsulates single dimensional arrays which also contain data types in which they themselves use arrays to store internal values such as Bytes and Strings. When I refer to primitives in Solidity what I mean `uint`, `int`, `bool`, `byte` which are in essence different types of integers with different sizes. `string`, `bytes`, `address` are just a few examples of data types which contain arrays and therefore a single array is in essence a nested array like `string[]` or `bytes[]`.
+Nested arrays within Solidity are still incomplete, they do work to a certain degree which creates confusion of where they can and can't be used, as well as what defines a nested array. The concept of a nested array in Solidity doesn't always relate to a primitive definition such as `uint[][]` or `byte[][]`. It encapsulates single dimensional arrays which also contain data types in which they themselves use arrays to store internal values such as `bytes` and `strings`. When referring to primitives in Solidity what is commonly meant is `uint`, `int`, `bool`, `byte` which are in essence are all integers with different lengths. `string`, `bytes` and `address` are just a few examples of data types which contain arrays and therefore implementing a single dimensional array using these data types is in essence a nested array.
 
 ### Contents
 
@@ -177,7 +177,7 @@ The raw memory extracted from the virtual machine debugger Remix.
 
 The breakdown of the memory layout and what each memory address points to.
 
-![https://raw.githubusercontent.com/willitscale/learning-solidity/master/support/images/nested_memory_layout.png](https://raw.githubusercontent.com/willitscale/learning-solidity/master/support/images/nested_memory_layout.png)
+![https://raw.githubusercontent.com/willitscale/learning-solidity/master/support/images/nested_array_memory_layout.png](https://raw.githubusercontent.com/willitscale/learning-solidity/master/support/images/nested_array_memory_layout.png)
 
 I broke this down into 7 chunks of memory:
 1. `0x120 -> 32 bytes`, the first chunk contains the number of arrays stored within the array which is interoperated as the next `n*256` (number of elements times a 256-bit unsigned integer) contains the pointers to the arrays
@@ -228,7 +228,7 @@ value: 0x0000000000000000000000000000000000000000000000000000000000000006
 
 The breakdown of the storage layout and how it all links up.
 
-![https://raw.githubusercontent.com/willitscale/learning-solidity/master/support/images/nested_memory_layout.png](https://raw.githubusercontent.com/willitscale/learning-solidity/master/support/images/nested_storage_layout.png)
+![https://raw.githubusercontent.com/willitscale/learning-solidity/master/support/images/nested_array_storage_layout.png](https://raw.githubusercontent.com/willitscale/learning-solidity/master/support/images/nested_array_storage_layout.png)
 
 Unlike memory, I've split this up into 5 chunks instead of 7 as there is no pointers in storage due to the key/value lookups negating the need for this:
 1. `0x000...000`, as previously mentioned in the "Invalid Implicit Conversion" support document storage variables are at top level incrementally referenced by a zero index. As this is the first index it has the key of `0x0` and it contains the length of elements in the array.
