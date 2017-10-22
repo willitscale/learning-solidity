@@ -22,15 +22,15 @@ Nested arrays within Solidity are still incomplete, they do work to a certain de
 
 ### 1. Can I use nested arrays?
 
-In short, yes you can, but you have to understand the constraints of using them before you design your DAPP around them. The first question you want to pose yourself really is do you need them? In Solidity's current state nested arrays are incomplete and will cause you unnecessary challenges. Next, you to be mindful of is what type of storage will you use for your nested array? Nested arrays are not implemented for every storage type, although they not throw errors at compilation time you may encounter errors at run time.
+In short, yes you can, but you have to understand the constraints of using them before you design your DAPP around them. The first question you want to pose yourself really is do you need them? In Solidity's current state nested arrays are incomplete and will cause you unnecessary challenges. Next, you to be mindful of is what type of storage will you use for your nested array? Nested arrays are not implemented for every storage type, although they may not throw errors at compilation time you may encounter errors at run time.
 
 #### 1.1. Where can I use a nested array?
 
-We use nested arrays in several ways at the moment which are pretty exclusive to internal only calling mechanisms. Functions can also use them, but we can only pass and return nested arrays to functions if they are __not__ externally facing.
+We can use nested arrays in several ways at the moment which are pretty exclusive to only internal calling mechanisms. Functions can handle nested arrays, but we can only pass and return nested arrays to functions if they are __not__ externally facing.
 
 ##### 1.1.1. Internal Nested Uses
 
-What this basically means is you can use nested array when they either:
+What this basically means is you can use nested array when they have one of the following implementations:
 
 **A storage implementation**
 
