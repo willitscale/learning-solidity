@@ -181,12 +181,12 @@ The breakdown of the memory layout and what each memory address points to.
 ![https://raw.githubusercontent.com/willitscale/learning-solidity/master/support/images/nested_array_memory_layout.png](https://raw.githubusercontent.com/willitscale/learning-solidity/master/support/images/nested_array_memory_layout.png)
 
 I broke this down into 7 chunks of memory:
-1. `0x120 -> 32 bytes`, the first chunk contains the number of arrays stored within the array which is interoperated as the next `n*256` (number of elements times a 256-bit unsigned integer) contains the pointers to the arrays
+1. `0x120 -> 32 bytes`, the first chunk contains the number of arrays stored within the array which is interpreted as the next `n*256` (number of elements times a 256-bit unsigned integer) contains the pointers to the arrays
 2. `0x140 -> 32 bytes`, the memory location of the first array which is located at `0x180`
 3. `0x160 -> 32 bytes`, the memory location of the second array which is located at `0x200`
-4. `0x180 -> 32 bytes`, the number of elements in the first array which is interoperated as the next `n*256` (number of elements times a 256-bit unsigned integer) contains the array values
+4. `0x180 -> 32 bytes`, the number of elements in the first array which is interpreted as the next `n*256` (number of elements times a 256-bit unsigned integer) contains the array values
 5. `0x1a0 -> 96 bytes`, the array values of the first array which are in 32 byte chunks
-6. `0x200 -> 32 bytes`, the number of elements in the second array which is interoperated as the next `n*256` (number of elements times a 256-bit unsigned integer) contains the array values
+6. `0x200 -> 32 bytes`, the number of elements in the second array which is interpreted as the next `n*256` (number of elements times a 256-bit unsigned integer) contains the array values
 7. `0x220 -> 96 bytes`, the array values of the second array which are in 32 byte chunks
 
 #### 2.2. Storage
