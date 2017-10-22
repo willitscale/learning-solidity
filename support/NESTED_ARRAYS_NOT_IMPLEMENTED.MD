@@ -18,6 +18,7 @@ Nested arrays within Solidity are still incomplete, they do work to a certain de
 - [3. Alternative Nested Implementation](#3-alternative-nested-implementation)
   - [3.1. Convert a nested array to bytes](#31-convert-a-nested-array-to-bytes)
   - [3.2. Convert bytes to a nested array](#32-convert-bytes-to-a-nested-array)
+  - [3.3. Test Case](#33-test-case)
 - [4. Resources](4-resources)
 
 ### 1. Can I use nested arrays?
@@ -308,7 +309,7 @@ function toArray(bytes _bytes)
     internal
     returns (uint[][] _ptr) {
     assembly {
-        // Should probably do a modular check to see if there is a zero remainder first
+        // Should probably do a modulo check to see if there is a zero remainder first
         let total_bytes := div(mload(_bytes), 0x20)
         _ptr := msize()
 
@@ -349,6 +350,8 @@ function toArray(bytes _bytes)
 ```
 
 Again, this code is experimental, but the logic should be correct.
+
+#### 3.3. Test Case
 
 If you would like a test case for the two data conversion mechanisms above here's a basic concept:
 
