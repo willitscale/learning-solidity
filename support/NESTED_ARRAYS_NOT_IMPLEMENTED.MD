@@ -258,7 +258,11 @@ function toBytes(uint[][] _array)
         let num_arrays := mload(_array)
         let total_bytes := 0
 
-        _ptr := msize()
+        _ptr := mload(0x40) 
+        switch lt(_ptr, msize()) 
+        case 1 { 
+            _ptr := msize()
+        }        
 
         // No data
         jumpi(copy_end, eq(0, num_arrays))
@@ -292,7 +296,7 @@ function toBytes(uint[][] _array)
         // Store the amount of bytes
         mstore(_ptr, mul(total_bytes, 0x20))
 
-        // Set the msize offset
+        // Set the free memory pointer
         mstore(0x40, add(_ptr, mul(0x20, add(total_bytes, 1))))
     }
 }
@@ -311,7 +315,12 @@ function toArray(bytes _bytes)
     assembly {
         // Should probably do a modulo check to see if there is a zero remainder first
         let total_bytes := div(mload(_bytes), 0x20)
-        _ptr := msize()
+
+        _ptr := mload(0x40) 
+        switch lt(_ptr, msize()) 
+        case 1 { 
+            _ptr := msize()
+        }     
 
         // No data
         jumpi(copy_end, eq(0, total_bytes))
@@ -343,7 +352,7 @@ function toArray(bytes _bytes)
         jump(copy_start)
         copy_end:
 
-        // Set the msize offset
+        // Set the free memory pointer
         mstore(0x40, add(_ptr, mul(0x20, total_bytes)))
     }
 }
