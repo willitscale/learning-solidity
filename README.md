@@ -23,6 +23,7 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 18 Randomness and Gambling](https://www.youtube.com/watch?v=3wY5PRliphE)
 - [Learning Solidity : Tutorial 19 Nested Arrays and Storage](https://www.youtube.com/watch?v=zkNHRJEuYQg)
 - [Learning Solidity : Tutorial 20 Parameter Mapping and Multiple Return Values](https://www.youtube.com/watch?v=v3aoiTh-UVQ)
+- [Learning Solidity : Tutorial 21 Truffle, Atom and TestRPC](https://www.youtube.com/watch?v=YcTSilIfih0)
 
 ### Support
 
