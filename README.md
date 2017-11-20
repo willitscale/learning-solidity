@@ -26,6 +26,7 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 21 Truffle, Atom and TestRPC](https://www.youtube.com/watch?v=YcTSilIfih0)
 - [Learning Solidity : Tutorial 22 Developing an ICO/Crowdsale with TDD](https://www.youtube.com/watch?v=Cow_aL7NUGY)
 - [Learning Solidity : Tutorial 23 State Modifiers (view, pure, constant)](https://www.youtube.com/watch?v=RKos31UueqY)
+- [Learning Solidity : Tutorial 24 Multisig Wallet](https://www.youtube.com/watch?v=OwavQTuHoM8)
 
 ### Support
 
