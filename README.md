@@ -28,6 +28,7 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 23 State Modifiers (view, pure, constant)](https://www.youtube.com/watch?v=RKos31UueqY)
 - [Learning Solidity : Tutorial 24 Multisig Wallet](https://www.youtube.com/watch?v=OwavQTuHoM8)
 - [Learning Solidity : Tutorial 25 Multisig Wallet cont. Multi Authentication](https://www.youtube.com/watch?v=23YLeX7mpbU)
+- [Learning Solidity : Tutorial 26 Auditing, Security and Testing (Long, but important)](https://www.youtube.com/watch?v=LGCMZ7S_ITE)
 
 ### Support
 
