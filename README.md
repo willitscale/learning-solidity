@@ -29,6 +29,7 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 24 Multisig Wallet](https://www.youtube.com/watch?v=OwavQTuHoM8)
 - [Learning Solidity : Tutorial 25 Multisig Wallet cont. Multi Authentication](https://www.youtube.com/watch?v=23YLeX7mpbU)
 - [Learning Solidity : Tutorial 26 Auditing, Security and Testing (Long, but important)](https://www.youtube.com/watch?v=LGCMZ7S_ITE)
+- [Learning Solidity : Tutorial 27 Getting started with browser development using Metamask](https://www.youtube.com/watch?v=eog2eYrPEu0)
 
 ### Support
 

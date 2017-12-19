@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Learning Solidity</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Learning Solidity</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+
+    <div class="container">
+
+      <div class="spacer"></div>
+
+      <div>
+        <h1>Ethereum Balance</h1>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-7">
+
+          <div id="balances"></div>
+
+          <div class="alert alert-dark" role="alert">
+<pre>
+function getBalances(provider) {
+  var ethWeb3 = new Web3(provider);
+  ethWeb3.eth.getAccounts(function (err, accounts) {
+    for(var i = 0; i < accounts.length; i++) {
+      var account = accounts[i];
+      ethWeb3.eth.getBalance(accounts[i], function (err, balance) {
+        addBalance(account, ethWeb3.fromWei(balance, 'ether'));
+      })
+    }
+  });
+}
+</pre>
+          </div>
+
+        </div>
+
+        <div class="col-md-5">
+
+          <div id="no-meta-mask" class="alert alert-danger" role="alert">
+            <i class="fa fa-times" aria-hidden="true"></i> Metamask installed
+          </div>
+
+          <div id="has-metamask" class="alert alert-success" role="alert">
+            <i class="fa fa-check" aria-hidden="true"></i> Metamask installed
+          </div>
+
+          <div class="alert alert-dark" role="alert">
+<pre>
+if (typeof window.web3 !== 'undefined') {
+  getBalances(web3.currentProvider);
+  $('#no-meta-mask').hide();
+} else {
+  $('#has-metamask').hide();
+}
+</pre>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="scripts/metamask.js"></script>
+  </body>
+</html>
