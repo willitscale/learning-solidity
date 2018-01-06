@@ -35,7 +35,8 @@ contract MyFirstToken is ERC20 {
     function transferFrom(address _from, address _to, uint _value) returns (bool success) {
         if (__allowances[_from][msg.sender] > 0 &&
             _value > 0 &&
-            __allowances[_from][msg.sender] >= _value && __balanceOf[_from] >= _value) {
+            __allowances[_from][msg.sender] >= _value && 
+            __balanceOf[_from] >= _value) {
             __balanceOf[_from] -= _value;
             __balanceOf[_to] += _value;
             // Missed from the video
