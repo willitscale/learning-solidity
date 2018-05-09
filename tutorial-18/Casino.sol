@@ -88,7 +88,8 @@ contract Casino {
         public {
         // Has winnings to claim
         require(_winnings[msg.sender] > 0);
-        msg.sender.transfer(_winnings[msg.sender]);
+        uint claimAmount = _winnings[msg.sender];
         _winnings[msg.sender] = 0;
+        msg.sender.transfer(claimAmount);        
     }
 }
