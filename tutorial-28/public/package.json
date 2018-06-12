@@ -1,0 +1,22 @@
+{
+  "name": "learning-solidity",
+  "version": "1.0.0",
+  "devDependencies": {
+    "ethjs-contract": "^0.1.9",
+    "ethjs-query": "^0.3.2",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^5.2.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^0.12.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "napa": "^3.0.0"
+  },
+  "scripts": {
+    "install": "napa"
+  },
+  "napa": {
+    "angular": "angular/bower-angular",
+    "angular-route": "angular/bower-angular-route"
+  }
+}
