@@ -1,5 +1,5 @@
 pragma solidity ^0.4.0;
-
+// link http://solidity.readthedocs.io/en/develop/types.html
 contract DataTypes {
     
     bool myBool = false;
@@ -8,12 +8,15 @@ contract DataTypes {
     uint8 myUInt = 255;
     
     string myString;
-    uint8[] myStringArr;
+    uint8[] myStringArr;        // same as string
 
+    // nested arrays are not supported yet
+    
     byte myValue;
     bytes1 myBytes1; 
     bytes32 myBytes32;
     
+    // not implemented
 //    fixed256x8 myFixed = 1; // 255.0
 //    ufixed myFixed = 1;
 
@@ -29,7 +32,7 @@ contract DataTypes {
         myAddress.transfer(10);
     }
     
-    uint[] myIntArr = [1,2,3];
+    uint[] myIntArr = [1,2,3];      // not fixed size so we can append
     
     function arrFunc() {
         myIntArr.push(1);
@@ -42,7 +45,7 @@ contract DataTypes {
     struct Account {
         uint balance;
         uint dailyLimit;
-    }
+    }   
     
     Account myAccount;
     
