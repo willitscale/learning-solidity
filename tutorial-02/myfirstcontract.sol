@@ -6,6 +6,7 @@ interface Regulator {
 }
 
 contract Bank is Regulator {
+    //#1 uint internal myInternalValue; // if made private it will not be accessible inside MyFirstContract
     uint private value;
     
     function Bank(uint amount) {
@@ -34,6 +35,7 @@ contract Bank is Regulator {
     function loan() returns (bool) {
         return value > 0;
     }
+    //#2 function loan() returns (bool); use this here and implement in MyFirstContract
 }
 
 contract MyFirstContract is Bank(10) {
@@ -41,6 +43,7 @@ contract MyFirstContract is Bank(10) {
     uint private age;
     
     function setName(string newName) {
+        //#1 myInternalValue = 1;
         name = newName;
     }
     
