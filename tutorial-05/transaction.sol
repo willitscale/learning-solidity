@@ -24,6 +24,10 @@ contract Transaction {
     function () payable isOwner validValue {
         SenderLogger(msg.sender);
         ValueLogger(msg.value);
+        // use event with emit
+        emit ValueLogger(block.number);
+        // http://solidity.readthedocs.io/en/develop/units-and-global-variables.html#block-and-transaction-properties
+        // other loggig numbers
     }
     
 }
