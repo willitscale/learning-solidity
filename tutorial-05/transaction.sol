@@ -17,7 +17,8 @@ contract Transaction {
         _;
     }
     
-    function Transaction() {
+    //deprecated. use constructor (){} instead
+        function Transaction() {
         owner = msg.sender;
     }
     
