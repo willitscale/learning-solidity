@@ -1,5 +1,6 @@
 pragma solidity ^0.4.0;
-
+// topic on memory,storage and stack differeces
+// https://ethereum.stackexchange.com/questions/23720/usage-of-memory-storage-and-stack-areas-in-evm/23722#comment24703_23722
 contract Debugging {
     
     uint[] private vars;
