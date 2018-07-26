@@ -8,7 +8,7 @@ contract TimeBased {
     uint private leaseTime = 600;
     
     modifier expire(address _addr) {
-        if (_expiryOf[_addr] >= block.timestamp) {
+        if (_expiryOf[_addr] <= block.timestamp) {
             _expiryOf[_addr] = 0;
             _balanceOf[_addr] = 0;
         }
