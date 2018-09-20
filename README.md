@@ -30,7 +30,7 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 25 Multisig Wallet cont. Multi Authentication](https://www.youtube.com/watch?v=23YLeX7mpbU)
 - [Learning Solidity : Tutorial 26 Auditing, Security and Testing (Long, but important)](https://www.youtube.com/watch?v=LGCMZ7S_ITE)
 - [Learning Solidity : Tutorial 27 Getting started with browser development using Metamask](https://www.youtube.com/watch?v=eog2eYrPEu0)
-- Learning Solidity : Tutorial 28 Address book on the blockchain powered by Angular
+- [Learning Solidity : Tutorial 28 Address book on the blockchain powered by Angular](https://www.youtube.com/watch?v=bvxKICus3bw)
 ### Support
 
 - [Invalid implicit conversion of arrays from storage to memory and vice-versa](https://github.com/willitscale/learning-solidity/blob/master/support/INVALID_IMPLICIT_CONVERSION_OF_ARRAYS.MD)
