@@ -32,6 +32,7 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 27 Getting started with browser development using Metamask](https://www.youtube.com/watch?v=eog2eYrPEu0)
 - [Learning Solidity : Tutorial 28 Address book on the blockchain powered by Angular](https://www.youtube.com/watch?v=bvxKICus3bw)
 - [Learning Solidity : Tutorial 29 What is WEI and how is Ether defined?](https://www.youtube.com/watch?v=yOfYNUQVjxk)
+- [Learning Solidity : Tutorial 30 Gas Explained](https://www.youtube.com/watch?v=sPrYkYk_Beo)
 ### Support
 
 - [Invalid implicit conversion of arrays from storage to memory and vice-versa](https://github.com/willitscale/learning-solidity/blob/master/support/INVALID_IMPLICIT_CONVERSION_OF_ARRAYS.MD)
