@@ -4,7 +4,7 @@ import "Token.sol";
 import "ERC20.sol";
 import "ERC223.sol";
 import "ERC223ReceivingContract.sol";
-import "github.com/OpenZeppelin/zeppelin-solidity/contracts/math/SafeMath.sol"
+import "github.com/OpenZeppelin/zeppelin-solidity/contracts/math/SafeMath.sol";
 
 contract MyFirstToken is Token("MFT", "My First Token", 18, 1000), ERC20, ERC223 {
 
