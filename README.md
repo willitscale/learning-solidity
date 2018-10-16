@@ -35,6 +35,7 @@ The companion to the Youtube tutorials
 - [Learning Solidity : Tutorial 30 Gas Explained](https://www.youtube.com/watch?v=sPrYkYk_Beo)
 - [Learning Solidity : Tutorial 31 Interacting with RPC using Java and web3j](https://www.youtube.com/watch?v=fzUGvU2dXxU)
 - [Learning Solidity : Tutorial 32 Transferring ether with Java using web3j](https://www.youtube.com/watch?v=kJ905hVbQ_E)
+- [Learning Solidity : Tutorial 33 Deploying and using a contract using Java and web3j](https://www.youtube.com/watch?v=ibAh04Csp0M)
 
 ### Support
 
