@@ -1,4 +1,4 @@
-# Learning Solidity Tutorial 31
+# Learning Solidity Tutorial 33
 
 What you'll need:
 - Download the web3j command line client from [here](https://github.com/web3j/web3j/releases/tag/v3.6.0)
