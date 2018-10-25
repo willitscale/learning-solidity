@@ -44,4 +44,9 @@ The companion to the Youtube tutorials
 
 ### Contributions
 
-- [Nikita Chebykin](https://github.com/chebykin) - Identified Safe Math bugs in Tutorial 11
+- [Nikita Chebykin](https://github.com/chebykin)
+- [Shubham Singh](https://github.com/imshubhamsingh)
+- [Shubham Tatvamasi](https://github.com/ShubhamTatvamasi)
+- [vardhanapoorv](https://github.com/vardhanapoorv)
+- [Kashish Khullar](https://github.com/kashishkhullar)
+
