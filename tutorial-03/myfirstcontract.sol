@@ -1,8 +1,8 @@
 pragma solidity ^0.4.0;
 
 interface Regulator {
-    function checkValue(uint amount) returns (bool);
-    function loan() returns (bool);
+    function checkValue(uint amount) external returns (bool);
+    function loan() external returns (bool);
 }
 
 contract Bank is Regulator {
@@ -14,31 +14,31 @@ contract Bank is Regulator {
         _;
     }
 
-    function Bank(uint amount) {
+    constructor(uint amount) public {
         value = amount;
         owner = msg.sender;
     }
     
-    function deposit(uint amount) ownerFunc {
+    function deposit(uint amount) public ownerFunc {
         value += amount;
     }
     
-    function withdraw(uint amount) ownerFunc {
+    function withdraw(uint amount) public ownerFunc {
         if (checkValue(amount)) {
             value -= amount;
         }
     }
     
-    function balance() returns (uint) {
+    function balance() public view returns (uint) {
         return value;
     }
     
-    function checkValue(uint amount) returns (bool) {
+    function checkValue(uint amount) public returns (bool) {
         // Classic mistake in the tutorial value should be above the amount
         return value >= amount;
     }
     
-    function loan() returns (bool) {
+    function loan() public returns (bool) {
         return value > 0;
     }
 }
@@ -47,38 +47,37 @@ contract MyFirstContract is Bank(10) {
     string private name;
     uint private age;
     
-    function setName(string newName) {
+    function setName(string newName) public {
         name = newName;
     }
     
-    function getName() returns (string) {
+    function getName() public view returns (string) {
         return name;
     }
     
-    function setAge(uint newAge) {
+    function setAge(uint newAge) public {
         age = newAge;
     }
     
-    function getAge() returns (uint) {
+    function getAge() public view returns (uint) {
         return age;
     }
 }
 
 contract TestThrows {
-    function testAssert() {
+    function testAssert() public pure {
         assert(1 == 2);
     }
     
-    function testRequire() {
+    function testRequire() public pure {
         require(2 == 1);
     }
     
-    function testRevert() {
+    function testRevert() public pure {
         revert();
     }
     
-    function testThrow() {
+    function testThrow() public pure {
         throw;
     }
 }
-
