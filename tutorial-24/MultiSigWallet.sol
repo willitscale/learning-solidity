@@ -19,7 +19,7 @@ contract MultiSigWallet {
     event WithdrawFunds(address to, uint amount);
     event TransferFunds(address from, address to, uint amount);
     
-    function MultiSigWallet()
+    constructor()
         public {
         _owner = msg.sender;
     }
@@ -39,7 +39,7 @@ contract MultiSigWallet {
     function ()
         public
         payable {
-        DepositFunds(msg.sender, msg.value);
+        emit DepositFunds(msg.sender, msg.value);
     }
     
     function withdraw(uint amount)
@@ -47,15 +47,15 @@ contract MultiSigWallet {
         public {
         require(address(this).balance >= amount);
         msg.sender.transfer(amount);
-        WithdrawFunds(msg.sender, amount);
+        emit WithdrawFunds(msg.sender, amount);
     }
     
     function transferTo(address to, uint amount) 
         validOwner
         public {
         require(address(this).balance >= amount);
-        msg.sender.transfer(amount);
-        TransferFunds(msg.sender, to, amount);
+        to.transfer(amount);
+        emit TransferFunds(msg.sender, to, amount);
     }
         
 }
