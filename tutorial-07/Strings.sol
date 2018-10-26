@@ -2,7 +2,7 @@ pragma solidity ^0.4.0;
 
 library Strings {
     
-    function concat(string _base, string _value) internal returns (string) {
+    function concat(string _base, string _value) pure internal returns (string) {
         bytes memory _baseBytes = bytes(_base);
         bytes memory _valueBytes = bytes(_value);
         
@@ -23,7 +23,7 @@ library Strings {
         return string(_newValue);
     }
     
-    function strpos(string _base, string _value) internal returns (int) {
+    function strpos(string _base, string _value) pure internal returns (int) {
         bytes memory _baseBytes = bytes(_base);
         bytes memory _valueBytes = bytes(_value);
 
@@ -37,5 +37,4 @@ library Strings {
         
         return -1;
     }
-    
 }
