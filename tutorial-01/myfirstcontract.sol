@@ -4,19 +4,19 @@ contract MyFirstContract {
     string private name;
     uint private age;
     
-    function setName(string newName) {
+    function setName(string newName) public {
         name = newName;
     }
     
-    function getName() returns (string) {
+    function getName() public view returns (string) {
         return name;
     }
     
-    function setAge(uint newAge) {
+    function setAge(uint newAge) public {
         age = newAge;
     }
     
-    function getAge() returns (uint) {
+    function getAge() public view returns (uint) {
         return age;
     }
 }
