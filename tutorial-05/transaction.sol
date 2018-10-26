@@ -17,13 +17,12 @@ contract Transaction {
         _;
     }
     
-    function Transaction() {
+    constructor() public {
         owner = msg.sender;
     }
     
-    function () payable isOwner validValue {
-        SenderLogger(msg.sender);
-        ValueLogger(msg.value);
+    function () public payable isOwner validValue {
+        emit SenderLogger(msg.sender);
+        emit ValueLogger(msg.value);
     }
-    
 }
