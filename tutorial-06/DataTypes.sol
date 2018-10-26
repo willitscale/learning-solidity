@@ -23,7 +23,7 @@ contract DataTypes {
     
     address myAddress;
     
-    function assignAddress() {
+    function assignAddress() public {
         myAddress = msg.sender;
         myAddress.balance;
         myAddress.transfer(10);
@@ -31,7 +31,7 @@ contract DataTypes {
     
     uint[] myIntArr = [1,2,3];
     
-    function arrFunc() {
+    function arrFunc() public {
         myIntArr.push(1);
         myIntArr.length;
         myIntArr[0];
@@ -46,17 +46,17 @@ contract DataTypes {
     
     Account myAccount;
     
-    function structFunc() {
+    function structFunc() public {
         myAccount.balance = 100;
     }
     
     mapping (address => Account) _accounts;
     
-    function () payable {
+    function () public payable {
         _accounts[msg.sender].balance += msg.value;
     }
     
-    function getBalance() returns (uint) {
+    function getBalance() public view returns (uint) {
         return _accounts[msg.sender].balance;
     }
 }
