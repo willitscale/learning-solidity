@@ -1,4 +1,4 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.5.0;
 
 interface Regulator {
     function checkValue(uint amount) external returns (bool);
@@ -40,11 +40,11 @@ contract MyFirstContract is Bank(10) {
     string private name;
     uint private age;
     
-    function setName(string newName) public {
+    function setName(string memory newName) public {
         name = newName;
     }
     
-    function getName() public view returns (string) {
+    function getName() public view returns (string memory) {
         return name;
     }
     
