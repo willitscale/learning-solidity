@@ -1,7 +1,7 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.5.0;
 
 contract EtherTransferTo {
-    function () public payable {
+    function () external payable {
     }
     
     function getBalance() public returns (uint) {
@@ -13,7 +13,7 @@ contract EtherTransferFrom {
     
     EtherTransferTo private _instance;
     
-    function EtherTransferFrom() public {
+    constructor() public {
         // _instance = EtherTransferTo(address(this));
         _instance = new EtherTransferTo();
     }
@@ -27,7 +27,7 @@ contract EtherTransferFrom {
         return _instance.getBalance();
     }
     
-    function () public payable {
+    function () external payable {
         //msg.sender.send(msg.value);
         address(_instance).send(msg.value);
     }
