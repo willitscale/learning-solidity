@@ -18,7 +18,7 @@ contract Casino {
     bool private hasWinner;
     address private winner;
     
-    function Casino()
+    constructor()
         public {
         start = block.timestamp;    
     }
