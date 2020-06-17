@@ -1,5 +1,4 @@
-pragma solidity ^0.4.0;
-
+pragma solidity ^0.4.22;
 contract Casino {
     
     uint private start;
@@ -18,7 +17,7 @@ contract Casino {
     bool private hasWinner;
     address private winner;
     
-    function Casino()
+    constructor()
         public {
         start = block.timestamp;    
     }
