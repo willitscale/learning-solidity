@@ -1,4 +1,4 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.4.21;
 
 contract MultiSigWallet {
 
@@ -54,7 +54,7 @@ contract MultiSigWallet {
     function ()
         public
         payable {
-        DepositFunds(msg.sender, msg.value);
+        emit DepositFunds(msg.sender, msg.value);
     }
 
     function withdraw(uint amount)
@@ -77,7 +77,7 @@ contract MultiSigWallet {
         _transactions[transactionId] = transaction;
         _pendingTransactions.push(transactionId);
 
-        TransactionCreated(msg.sender, to, amount, transactionId);
+        emit TransactionCreated(msg.sender, to, amount, transactionId);
     }
 
     function getPendingTransactions()
@@ -104,12 +104,12 @@ contract MultiSigWallet {
       transaction.signatures[msg.sender] = 1;
       transaction.signatureCount++;
 
-      TransactionSigned(msg.sender, transactionId);
+      emit TransactionSigned(msg.sender, transactionId);
 
       if (transaction.signatureCount >= MIN_SIGNATURES) {
         require(address(this).balance >= transaction.amount);
         transaction.to.transfer(transaction.amount);
-        TransactionCompleted(transaction.from, transaction.to, transaction.amount, transactionId);
+        emit TransactionCompleted(transaction.from, transaction.to, transaction.amount, transactionId);
         deleteTransaction(transactionId);
       }
     }
