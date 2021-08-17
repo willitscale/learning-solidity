@@ -8,7 +8,7 @@ contract Token {
     mapping (address => uint) internal _balanceOf;
     mapping (address => mapping (address => uint)) internal _allowances;
     
-    function Token(string symbol, string name, uint8 decimals, uint totalSupply) public {
+    constructor(string symbol, string name, uint8 decimals, uint totalSupply) public {
         _symbol = symbol;
         _name = name;
         _decimals = decimals;
