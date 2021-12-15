@@ -9,45 +9,41 @@ interface Regulator {
 
 contract Bank is Regulator{
 
-    // The internal modifer means that the function 
-    // can only be called within the contract itself and any derived contracts.
-    // ex. uint internal myInternalValue
-
-    uint private bankValue;
+    uint private value;
 
     constructor(uint amount) {
 
-        bankValue = amount;
+        value = amount;
     }
 
     function deposit(uint amount) public {
-        bankValue += amount;
+        value += amount;
     }
 
     function withdrawel(uint amount) public {
 
         if (checkValue(amount)){
-             bankValue -= amount;
+            value -= amount;
 
         }
     }
 
     function balance() public view returns (uint) {
 
-        return bankValue;
+        return value;
     }
 
     // Override
 
     function checkValue(uint amount) public override view returns (bool) {
 
-        return bankValue > amount;
+        return value > amount;
 
     }
 
     function loan() public override view returns (bool) {
 
-        return bankValue > 0;
+        return value > 0;
 
     }
 
