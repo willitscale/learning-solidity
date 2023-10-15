@@ -1,6 +1,6 @@
 pragma solidity ^0.4.0;
 
-import "browser/Strings.sol";
+import "./Strings.sol";
 
 contract TestStrings {
     

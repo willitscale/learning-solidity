@@ -1,6 +1,6 @@
 pragma solidity ^0.4.0;
 
-import "browser/ERC20.sol";
+import "./ERC20.sol";
 
 contract MyFirstToken is ERC20 {
     string public constant symbol = "MFT";
@@ -37,10 +37,13 @@ contract MyFirstToken is ERC20 {
             _value > 0 &&
             __allowances[_from][msg.sender] >= _value && 
             __balanceOf[_from] >= _value) {
+
+            // Missed from the video
+            // Allowances are updated first to prevent the re-entrancy exploit
+            __allowances[_from][msg.sender] -= _value;
+
             __balanceOf[_from] -= _value;
             __balanceOf[_to] += _value;
-            // Missed from the video
-            __allowances[_from][msg.sender] -= _value;
             return true;
         }
         return false;
@@ -51,7 +54,7 @@ contract MyFirstToken is ERC20 {
         return true;
     }
     
-    function allowance(address _owner, address _spender) public constant returns (uint remaining) {
+    function allowance(address _owner, address _spender) public constant returns (uint availableAllowance) {
         return __allowances[_owner][_spender];
     }
 }

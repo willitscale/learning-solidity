@@ -1,9 +1,9 @@
 pragma solidity ^0.4.0;
 
-import "browser/Token.sol";
-import "browser/ERC20.sol";
-import "browser/ERC223.sol";
-import "browser/ERC223ReceivingContract.sol";
+import "./Token.sol";
+import "./ERC20.sol";
+import "./ERC223.sol";
+import "./ERC223ReceivingContract.sol";
 
 contract MyFirstToken is Token("MFT", "My First Token", 18, 1000), ERC20, ERC223 {
 
