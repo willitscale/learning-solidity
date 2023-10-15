@@ -1,6 +1,6 @@
 pragma solidity ^0.4.0;
 
-import "browser/library.sol";
+import "./library.sol";
 
 contract TestLibrary {
     using IntExtended for uint;
